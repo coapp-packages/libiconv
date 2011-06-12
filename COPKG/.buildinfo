@@ -1,0 +1,61 @@
+#product-info  {
+    product-name: "libiconv";
+    version: "1.13.1";
+    original-source-location: "http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz";
+    original-source-website: "http://www.gnu.org/software/libiconv/";
+    license: "LGPL, exe under GPL";
+    packager: "Eric Schultz";
+}
+
+
+mingw {
+	compiler: "mingw-x86";
+
+ 
+    targets: { "bin\libcharset-1.dll",
+			   "lib\.libs\libiconv-2.dll",
+			   "src\iconv_no_i18n.exe"} ;
+            // a comma seperated list of the binary files that are output 
+            // that are of significance
+ 
+    build-command: @"sh './configure'
+    make
+    ";
+            // either a single command line, or a batch script 
+            // that has the commands to build the targets listed above.
+ 
+    clean-command: @"make clean
+    rm Makefile
+    rm config.log
+    rm config.h
+    rm libtool
+    rm stamp-h1
+    rm config.status
+    rm lib/Makefile
+    rm srclib/Makefile
+    rm src/Makefile
+    rm po/Makefile.in
+    rm man/Makefile
+    rm tests/Makefile
+    rm include/iconv.h
+    rm include/iconv.h.inst
+    rm lib/stamp-h2
+    rm po/POTFILES
+    rm po/Makefile
+    rm libcharset/config.status
+    rm libcharset/Makefile
+    rm libcharset/lib/Makefile
+    rm libcharset/include/localcharset.h
+    rm libcharset/include/localcharset.h.inst
+    rm libcharset/libtool
+    rm libcharset/config.log
+    rm preload/config.status
+    rm preload/Makefile
+    rm preload/libtool
+    rm lib/config.h
+    rm libcharset/config.h
+    rm libcharset/include/libcharset.h
+    rm po/stamp-po
+    ";
+}
+
