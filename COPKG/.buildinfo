@@ -9,7 +9,7 @@
 
 
 mingw {
-	compiler: "mingw-x86";
+	compiler: "mingw";
 
  
     targets: { "bin\libcharset-1.dll",
