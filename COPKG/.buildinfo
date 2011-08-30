@@ -50,6 +50,7 @@ mingw {
     rm libcharset/libtool
     rm libcharset/config.log
     rm preload/config.status
+	rm preload/config.log
     rm preload/Makefile
     rm preload/libtool
     rm lib/config.h
