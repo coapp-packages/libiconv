@@ -20,6 +20,7 @@ mingw {
  
     build-command: @"sh './configure'
     make
+	copy lib\.libs\libiconv.dll.a lib\.libs\iconv.lib
     ";
             // either a single command line, or a batch script 
             // that has the commands to build the targets listed above.
@@ -57,6 +58,7 @@ mingw {
     rm libcharset/config.h
     rm libcharset/include/libcharset.h
     rm po/stamp-po
+	rm lib/.libs/iconv.lib
     ";
 }
 
