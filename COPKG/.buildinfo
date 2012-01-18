@@ -13,8 +13,8 @@ mingw {
 
  
     targets: { "bin\libcharset-1.dll",
-			   "lib\.libs\libiconv-2.dll",
-			   "src\iconv_no_i18n.exe"} ;
+			   "lib\.libs\libiconv-2.dll"};
+		//	   "src\iconv_no_i18n.exe"} ;
             // a comma seperated list of the binary files that are output 
             // that are of significance
  
@@ -59,6 +59,62 @@ mingw {
     rm libcharset/include/libcharset.h
     rm po/stamp-po
 	rm lib/.libs/iconv.lib
+    ";
+}
+
+x86 {
+    compiler: vc10;
+    platform: x86;
+
+ 
+    targets: {
+        "Release\Win32\libiconv.lib",
+        "Release\Win32\libiconv.dll"
+    };
+
+
+    build-command: @"
+        copy config.h.vs.in config.h
+        copy libcharset\include\localcharset.h.buildvs.in libcharset\include\localcharset.h
+        copy include\iconv.h.buildvs.in include\iconv.h
+        msbuild /p:Platform=win32 /p:Configuration=Release libiconv.sln
+    ";
+ 
+    clean-command: @"
+        del config.h
+        del include\iconv.h
+        del libcharset\include\localcharset.h
+        rmdir Release /S /Q
+        rmdir ipch /S /Q
+        del /S /Q /A - *.sdf *.suo *.user *.exe *.pdb > NUL 2> NUL
+    ";
+}
+
+x64 {
+    compiler: vc10;
+    platform: x64;
+
+ 
+    targets: {
+        "Release\x64\libiconv.lib",
+        "Release\x64\libiconv.dll"
+    };
+
+
+    build-command: @"
+        copy config.h.vs.in config.h
+        copy libcharset\include\localcharset.h.buildvs.in libcharset\include\localcharset.h
+        copy include\iconv.h.buildvs.in include\iconv.h
+        msbuild /p:Platform=x64 /p:Configuration=Release libiconv.sln
+    ";
+ 
+    clean-command: @"
+        del config.h
+        del include\iconv.h
+        del libcharset\include\localcharset.h
+        rmdir Release /S /Q
+        rmdir ipch /S /Q
+        del /S /Q /A - *.sdf *.suo *.user *.exe *.pdb > NUL 2> NUL
     ";
 }
 
