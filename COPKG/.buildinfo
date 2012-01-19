@@ -78,6 +78,7 @@ x86 {
         copy libcharset\include\localcharset.h.buildvs.in libcharset\include\localcharset.h
         copy include\iconv.h.buildvs.in include\iconv.h
         msbuild /p:Platform=win32 /p:Configuration=Release libiconv.sln
+        copy Release\win32\libiconv.lib Release\win32\libiconv.dll.a 
     ";
  
     clean-command: @"
@@ -106,6 +107,7 @@ x64 {
         copy libcharset\include\localcharset.h.buildvs.in libcharset\include\localcharset.h
         copy include\iconv.h.buildvs.in include\iconv.h
         msbuild /p:Platform=x64 /p:Configuration=Release libiconv.sln
+        copy Release\x64\libiconv.lib Release\x64\libiconv.dll.a
     ";
  
     clean-command: @"
