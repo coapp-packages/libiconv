@@ -1,0 +1,8 @@
+// details for x64 version of libiconv package
+// build with: autopackage x64.autopkg libiconv.autopkg  
+@import "libiconv.inc";
+
+#define { 
+    flavor: "vc10"; 
+    arch : "x64";
+}

@@ -1,0 +1,8 @@
+// details for x86 version of libiconv package
+// build with: autopackage libiconv-dev[vc10]-x86.autopkg
+@import "libiconv-dev.inc" ;
+
+#define { 
+    flavor: "vc10"; 
+    arch : "x86";
+}

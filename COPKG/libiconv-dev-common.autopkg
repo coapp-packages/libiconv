@@ -1,0 +1,59 @@
+@import "version.inc" ;
+@import "outercurve.inc" ;
+
+package {
+    name: "libiconv-dev-common";
+    version: "${package-version}";
+    arch: any;
+    display-name: "libiconv Dev Library-common";
+}
+
+metadata {
+    summary: "The libiconv developer library (common)";
+    description: @"libiconv"; 
+        
+    icon: @"libiconv.png";
+    
+    author-version : "1.13.1.0";
+    bug-tracker: "https://github.com/coapp-packages/libiconv/issues";
+    stability : "0";
+    licenses : {
+        LGPL
+    };
+}
+
+files[headers] {
+    root: "..\\include\\";
+    include: {
+        "iconv.h"
+    };
+    
+    trim-path:all;
+    
+    // ensures that all the header files end up in a subfolder called 'include'
+    destination-path:"include";
+}
+
+files[docs] {
+    root: "..\\doc\\";
+    include: {
+        "*"
+    };
+    
+    trim-path:all;
+    
+    // ensures that all the documentation files end up in a subfolder called 'docs'
+    destination-path:"docs";
+
+}
+
+// the 'name' of the developer library isn't terribly important...
+developer-library[libiconv] {
+    headers: { 
+        headers
+    };
+    
+    docs: {
+        docs
+    };
+}

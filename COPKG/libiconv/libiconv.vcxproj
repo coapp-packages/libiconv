@@ -62,15 +62,23 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>..\..\$(Configuration)\x86\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>..\..\$(Configuration)\x64\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(SolutionDir)\$(Configuration)\$(Platform)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(SolutionDir)\$(Configuration)\$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\$(Configuration)\x86\</OutDir>
+    <IntDir>$(SolutionDir)\$(Configuration)\$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\..\$(Configuration)\x64\</OutDir>
     <IntDir>$(SolutionDir)\$(Configuration)\$(Platform)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -97,7 +105,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>./include;./;./libcharset/include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>ICONV_CONST=const;LIBDIR;BUILDING_LIBICONV;BUILDING_LIBCHARSET;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -115,7 +123,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>./include;./;./libcharset/include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>ICONV_CONST=const;LIBDIR;BUILDING_LIBICONV;BUILDING_LIBCHARSET;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -128,20 +136,20 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="libcharset\lib\localcharset.c" />
-    <ClCompile Include="lib\iconv.c" />
-    <ClCompile Include="lib\relocatable.c" />
+    <ClCompile Include="..\..\libcharset\lib\localcharset.c" />
+    <ClCompile Include="..\..\lib\iconv.c" />
+    <ClCompile Include="..\..\lib\relocatable.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\relocatable.h" />
+    <ClInclude Include="..\..\lib\relocatable.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="windows\libiconv.rc" />
+    <ResourceCompile Include="..\..\windows\libiconv.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="config.h.vs.in" />
-    <None Include="include\iconv.h.buildvs.in" />
-    <None Include="libcharset\include\localcharset.h.buildvs.in" />
+    <None Include="..\..\config.h.vs.in" />
+    <None Include="..\..\include\iconv.h.buildvs.in" />
+    <None Include="..\..\libcharset\include\localcharset.h.buildvs.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

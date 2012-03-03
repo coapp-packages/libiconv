@@ -15,29 +15,29 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="libcharset\lib\localcharset.c">
+    <ClCompile Include="..\..\libcharset\lib\localcharset.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\relocatable.c">
+    <ClCompile Include="..\..\lib\iconv.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\iconv.c">
+    <ClCompile Include="..\..\lib\relocatable.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\relocatable.h">
+    <ClInclude Include="..\..\lib\relocatable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="windows\libiconv.rc">
+    <ResourceCompile Include="..\..\windows\libiconv.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="config.h.vs.in" />
-    <None Include="include\iconv.h.buildvs.in" />
-    <None Include="libcharset\include\localcharset.h.buildvs.in" />
+    <None Include="..\..\config.h.vs.in" />
+    <None Include="..\..\include\iconv.h.buildvs.in" />
+    <None Include="..\..\libcharset\include\localcharset.h.buildvs.in" />
   </ItemGroup>
 </Project>

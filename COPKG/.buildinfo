@@ -7,10 +7,80 @@
     packager: "Eric Schultz";
 }
 
+test {
+    default : false;
+    uses: release;
+    build-command: @"
+	    rem ";
+};
+
+package {
+    
+    default : false;
+    uses : sign;
+    
+    targets: { 
+        @"copkg\libiconv[vc10]-${package-version}-x86.msi",
+        @"copkg\libiconv-dev[vc10]-${package-version}-x86.msi",
+        @"copkg\libiconv-dev-common-${package-version}-any.msi",
+        @"copkg\libiconv[vc10]-${package-version}-x64.msi",
+        @"copkg\libiconv-dev[vc10]-${package-version}-x64.msi"
+    };
+    
+    build-command : @"
+        REM THERE IS SOME GOOFY STUFF IN HERE TO WORK AROUND A COUPLE BUGS IN AUTOPACKAGE.
+        REM FIXES COMING SOON...
+        cd COPKG
+        coapp add-feed %cd%\
+        coapp --force-scan list 
+        autopackage libiconv-dev-common.autopkg || goto failed
+        coapp --force-scan list 
+        autopackage libiconv[vc10]-x86.autopkg libiconv-dev[vc10]-x86.autopkg || goto failed
+        coapp --force-scan list 
+        autopackage libiconv[vc10]-x64.autopkg libiconv-dev[vc10]-x64.autopkg || goto failed
+        coapp --force-scan list 
+        coapp remove-feed %cd%\
+        ptk update-version
+    ";
+
+	clean-command: @"del COPKG\*.msi COPKG\*.wixpdb";
+	
+};
+
+
+update-version {
+    default : false;
+    
+    build-command : @"
+        REM auto-increment version.inc file...
+        
+        cd COPKG
+        setlocal EnableDelayedExpansion
+        for /F ""tokens=4,5,6,7  delims=.; "" %%v in (version.inc) do (
+            set /a build=%%y + 1
+            set VERSTRING=#define { package-version: %%v.%%w.%%x.!build!; }
+        )
+        echo !VERSTRING! > version.inc
+    ";
+}
+
+release {
+    set: BuildCfg="Release";
+    uses: x86;
+    uses: x64;
+};
+
+sign {
+    default : false;
+    uses: release;
+    build-command: @"simplesigner.exe --nologo --sign Release\x64\**.dll Release\x86\**.dll";
+};
+
 
 mingw {
 	compiler: "mingw";
 
+	default: false;
  
     targets: { "bin\libcharset-1.dll",
 			   "lib\.libs\libiconv-2.dll"};
@@ -68,8 +138,8 @@ x86 {
 
  
     targets: {
-        "Release\Win32\libiconv.lib",
-        "Release\Win32\libiconv.dll"
+        "Release\x86\libiconv.lib",
+        "Release\x86\libiconv.dll"
     };
 
 
@@ -78,7 +148,7 @@ x86 {
         copy libcharset\include\localcharset.h.buildvs.in libcharset\include\localcharset.h
         copy include\iconv.h.buildvs.in include\iconv.h
         msbuild /p:Platform=win32 /p:Configuration=Release libiconv.sln
-        copy Release\win32\libiconv.lib Release\win32\libiconv.dll.a 
+        rem copy Release\x86\libiconv.lib Release\x86\libiconv.dll.a 
     ";
  
     clean-command: @"
@@ -86,7 +156,8 @@ x86 {
         del include\iconv.h
         del libcharset\include\localcharset.h
         rmdir Release /S /Q
-        rmdir ipch /S /Q
+        rmdir COPKG\libiconv\ipch /S /Q
+		rmdir COPKG\libiconv\Release /S /Q
         del /S /Q /A - *.sdf *.suo *.user *.exe *.pdb > NUL 2> NUL
     ";
 }
@@ -115,7 +186,8 @@ x64 {
         del include\iconv.h
         del libcharset\include\localcharset.h
         rmdir Release /S /Q
-        rmdir ipch /S /Q
+        rmdir COPKG\libiconv\ipch /S /Q
+		rmdir COPKG\libiconv\Release /S /Q
         del /S /Q /A - *.sdf *.suo *.user *.exe *.pdb > NUL 2> NUL
     ";
 }
