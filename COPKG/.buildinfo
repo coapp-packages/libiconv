@@ -1,3 +1,5 @@
+@import "version.inc";
+
 #product-info  {
     product-name: "libiconv";
     version: "1.13.1";
@@ -147,7 +149,7 @@ x86 {
         copy config.h.vs.in config.h
         copy libcharset\include\localcharset.h.buildvs.in libcharset\include\localcharset.h
         copy include\iconv.h.buildvs.in include\iconv.h
-        msbuild /p:Platform=win32 /p:Configuration=Release libiconv.sln
+        msbuild /p:Platform=win32 /p:Configuration=Release COPKG\libiconv\libiconv.sln
         rem copy Release\x86\libiconv.lib Release\x86\libiconv.dll.a 
     ";
  
@@ -158,7 +160,9 @@ x86 {
         rmdir Release /S /Q
         rmdir COPKG\libiconv\ipch /S /Q
 		rmdir COPKG\libiconv\Release /S /Q
+        pushd COPKG
         del /S /Q /A - *.sdf *.suo *.user *.exe *.pdb > NUL 2> NUL
+        popd
     ";
 }
 
@@ -177,7 +181,7 @@ x64 {
         copy config.h.vs.in config.h
         copy libcharset\include\localcharset.h.buildvs.in libcharset\include\localcharset.h
         copy include\iconv.h.buildvs.in include\iconv.h
-        msbuild /p:Platform=x64 /p:Configuration=Release libiconv.sln
+        msbuild /p:Platform=x64 /p:Configuration=Release COPKG\libiconv\libiconv.sln
         copy Release\x64\libiconv.lib Release\x64\libiconv.dll.a
     ";
  
@@ -188,7 +192,10 @@ x64 {
         rmdir Release /S /Q
         rmdir COPKG\libiconv\ipch /S /Q
 		rmdir COPKG\libiconv\Release /S /Q
+
+        pushd COPKG
         del /S /Q /A - *.sdf *.suo *.user *.exe *.pdb > NUL 2> NUL
+        popd
     ";
 }
 
