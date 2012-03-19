@@ -78,7 +78,7 @@ release {
 sign {
     default : false;
     uses: release;
-    build-command: @"simplesigner.exe --nologo --sign Release\x64\**.dll Release\x86\**.dll";
+    build-command: @"simplesigner.exe --nologo --sign output\vc10\x64\Release\**.dll output\vc10\x86\Release\**.dll";
 };
 
 
