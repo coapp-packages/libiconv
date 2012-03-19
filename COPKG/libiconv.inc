@@ -14,7 +14,7 @@ package {
 }
 
 files[dlls] {
-    root: @"..\Release\${arch}\";
+    root: @"..\output\${flavor}\${arch}\Release\";
   
     include: {
         "libiconv.dll",

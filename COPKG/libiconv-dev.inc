@@ -24,10 +24,11 @@ metadata {
 }
 
 files[libs] {
-    root: @"..\Release\${arch}\";
+    root: @"..\output\${flavor}\${arch}\Release\";
     
     include: {
         "libiconv.lib",
+        "libiconv-static.lib"
     };
     
     trim-path: all;
