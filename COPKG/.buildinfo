@@ -143,8 +143,8 @@ x86 {
 
  
     targets: {
-        "Release\x86\libiconv.lib",
-        "Release\x86\libiconv.dll"
+        "output\vc10\x86\Release\libiconv.lib",
+        "output\vc10\x86\Release\libiconv.dll"
     };
 
 
@@ -153,7 +153,7 @@ x86 {
         copy libcharset\include\localcharset.h.buildvs.in libcharset\include\localcharset.h
         copy include\iconv.h.buildvs.in include\iconv.h
         msbuild /p:Platform=win32 /p:Configuration=Release COPKG\libiconv\libiconv.sln
-        copy Release\x86\libiconv.lib Release\x86\libiconv.dll.a 
+        copy output\vc10\x86\Release\libiconv.lib output\vc10\x86\Release\libiconv.dll.a 
     ";
  
     clean-command: @"
@@ -175,8 +175,8 @@ x64 {
 
  
     targets: {
-        "Release\x64\libiconv.lib",
-        "Release\x64\libiconv.dll"
+        "output\vc10\x64\Release\libiconv.lib",
+        "output\vc10\x64\Release\libiconv.dll"
     };
 
 
@@ -185,7 +185,7 @@ x64 {
         copy libcharset\include\localcharset.h.buildvs.in libcharset\include\localcharset.h
         copy include\iconv.h.buildvs.in include\iconv.h
         msbuild /p:Platform=x64 /p:Configuration=Release COPKG\libiconv\libiconv.sln
-        copy Release\x64\libiconv.lib Release\x64\libiconv.dll.a
+        copy output\vc10\x64\Release\libiconv.lib output\vc10\x64\Release\\libiconv.dll.a
     ";
  
     clean-command: @"
