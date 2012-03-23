@@ -57,7 +57,7 @@ compatability-policy {
     }; // if not specified, find the versions by looking at the feeds and finding all the major/minor versions in range.
 }
 
-assembly[libiconv] {
+assembly[libiconv[${flavor}]] {
     include : {
         dlls
     };

@@ -39,7 +39,7 @@ requires {
     package: "libiconv[${flavor}]-${package-version}-${Package.Architecture}-${Package.PublicKeyToken}";
 }
 
-developer-library[libiconv] {
+developer-library[libiconv[${flavor}]] {
     libraries : {
         libs
     };
