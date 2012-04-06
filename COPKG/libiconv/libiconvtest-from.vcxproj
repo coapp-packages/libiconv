@@ -23,7 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="libiconv.vcxproj">
-      <Project>{A2AACCA5-3557-4B73-A1AB-EAE6BDAFB0DA}</Project>
+      <Project>{39B52078-0A4E-4657-90DC-F376315445C0}</Project>
       <Private>false</Private>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
