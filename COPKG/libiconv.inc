@@ -41,7 +41,7 @@ metadata {
 
     icon: @"libiconv.png";
     
-    author-version : "1.13.1.0";
+    author-version : "1.14";
     bug-tracker: "https://github.com/coapp-packages/libiconv/issues";
     stability : "0";
     licenses : {
@@ -50,10 +50,9 @@ metadata {
 }
 
 compatability-policy {
-    minimum: "1.13.1.0";
+    minimum: "1.14.0.0";
     maximum: "${OneLessThanCurrent}"; // this is the default
     versions : {
-        "1.13",
     }; // if not specified, find the versions by looking at the feeds and finding all the major/minor versions in range.
 }
 

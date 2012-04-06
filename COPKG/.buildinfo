@@ -2,8 +2,8 @@
 
 #product-info  {
     product-name: "libiconv";
-    version: "1.13.1";
-    original-source-location: "http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz";
+    version: "1.14";
+    original-source-location: "http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz";
     original-source-website: "http://www.gnu.org/software/libiconv/";
     license: "LGPL, exe under GPL";
     packager: "Eric Schultz";
