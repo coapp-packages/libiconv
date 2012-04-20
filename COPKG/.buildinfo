@@ -114,8 +114,12 @@ x86 {
 
  
     targets: {
-        "output\vc10\x86\Release\libiconv.lib",
-        "output\vc10\x86\Release\libiconv.dll"
+        @"output\vc10\x86\Release\libiconv.lib",
+        @"output\vc10\x86\Release\libiconv.dll",
+        @"output\vc10\x86\Release\libiconvtest.exe",
+        @"output\vc10\x86\Release\table-to.exe",
+        @"output\vc10\x86\Release\table-from.exe",
+		@"output\vc10\x86\Release\uniq-u.exe"
     };
 
 
@@ -146,8 +150,12 @@ x64 {
 
  
     targets: {
-        "output\vc10\x64\Release\libiconv.lib",
-        "output\vc10\x64\Release\libiconv.dll"
+        @"output\vc10\x64\Release\libiconv.lib",
+        @"output\vc10\x64\Release\libiconv.dll",
+        @"output\vc10\x64\Release\libiconvtest.exe",
+        @"output\vc10\x64\Release\table-to.exe",
+        @"output\vc10\x64\Release\table-from.exe",
+		@"output\vc10\x64\Release\uniq-u.exe"
     };
 
 
