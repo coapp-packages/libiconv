@@ -28,7 +28,7 @@
 /* SET_BINARY (fd);
    changes the file descriptor fd to perform binary I/O.  */
 #if O_BINARY
-# if defined __EMX__ || defined __DJGPP__ || defined __CYGWIN__
+# if defined __EMX__ || defined __DJGPP__ || defined __CYGWIN__ || defined _MSC_VER
 #  include <io.h> /* declares setmode() */
 # else
 #  define setmode _setmode
