@@ -459,3 +459,9 @@
 # define DLL_VARIABLE
 #endif
 
+
+/* safe_read is a function for working around a bug in Tru64 Unix and
+ * retrying if read() is interrupted by a signal. It's defined in
+ * srclib/safe-read.c. This doesn't make sense on MSVC, and the function
+ * would take a little bit of work to build, so just use read instead. */
+#define safe_read read
