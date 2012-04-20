@@ -36,15 +36,10 @@ package {
     };
     
     build-command : @"
-        REM THERE IS SOME GOOFY STUFF IN HERE TO WORK AROUND A COUPLE BUGS IN AUTOPACKAGE.
-        REM FIXES COMING SOON...
         cd COPKG
-        coapp add-feed ""%cd%""
         autopackage libiconv-dev-common.autopkg || goto failed
-        coapp --force-scan list 
         autopackage libiconv[vc10]-x86.autopkg libiconv-dev[vc10]-x86.autopkg || goto failed
         autopackage libiconv[vc10]-x64.autopkg libiconv-dev[vc10]-x64.autopkg || goto failed
-        coapp remove-feed ""%cd%""
         ptk update-version
     ";
 
