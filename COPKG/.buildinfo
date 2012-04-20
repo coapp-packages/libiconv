@@ -87,53 +87,24 @@ mingw {
 
 	default: false;
  
-    targets: { "bin\libcharset-1.dll",
-			   "lib\.libs\libiconv-2.dll"};
-		//	   "src\iconv_no_i18n.exe"} ;
+    targets: { @"mingw-build\bin\libcharset-1.dll",
+			   @"mingw-build\lib\.libs\libiconv-2.dll"};
+		//	   @"mingw-build\src\iconv_no_i18n.exe"} ;
             // a comma seperated list of the binary files that are output 
             // that are of significance
  
-    build-command: @"sh './configure'
+    build-command: @"
+	mkdir mingw-build
+	cd mingw-build
+	sh '../configure'
     make
 	copy lib\.libs\libiconv.dll.a lib\.libs\iconv.lib
     ";
             // either a single command line, or a batch script 
             // that has the commands to build the targets listed above.
  
-    clean-command: @"make clean
-    rm Makefile
-    rm config.log
-    rm config.h
-    rm libtool
-    rm stamp-h1
-    rm config.status
-    rm lib/Makefile
-    rm srclib/Makefile
-    rm src/Makefile
-    rm po/Makefile.in
-    rm man/Makefile
-    rm tests/Makefile
-    rm include/iconv.h
-    rm include/iconv.h.inst
-    rm lib/stamp-h2
-    rm po/POTFILES
-    rm po/Makefile
-    rm libcharset/config.status
-    rm libcharset/Makefile
-    rm libcharset/lib/Makefile
-    rm libcharset/include/localcharset.h
-    rm libcharset/include/localcharset.h.inst
-    rm libcharset/libtool
-    rm libcharset/config.log
-    rm preload/config.status
-	rm preload/config.log
-    rm preload/Makefile
-    rm preload/libtool
-    rm lib/config.h
-    rm libcharset/config.h
-    rm libcharset/include/libcharset.h
-    rm po/stamp-po
-	rm lib/.libs/iconv.lib
+    clean-command: @"
+	rd /s /q mingw-build
     ";
 }
 
