@@ -35,9 +35,4 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\config.h.vs.in" />
-    <None Include="..\..\include\iconv.h.buildvs.in" />
-    <None Include="..\..\libcharset\include\localcharset.h.buildvs.in" />
-  </ItemGroup>
 </Project>

@@ -107,7 +107,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>..\..\include;..\..\srclib;..\..\lib;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)no-i18n;$(SolutionDir);..\..\include;..\..\srclib;..\..\lib;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>ICONV_CONST=const;HAVE_CONFIG_H;_WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -133,7 +133,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>..\..\include;..\..\srclib;..\..\lib;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)no-i18n;$(SolutionDir);..\..\include;..\..\srclib;..\..\lib;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>ICONV_CONST=const;HAVE_CONFIG_H;_WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -160,7 +160,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\..\include;..\..\srclib;..\..\lib;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)no-i18n;$(SolutionDir);..\..\include;..\..\srclib;..\..\lib;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>ICONV_CONST=const;HAVE_CONFIG_H;_WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <PrecompiledHeaderOutputFile>.\output\vc10\x86\$(Configuration)\uniq-u.pch</PrecompiledHeaderOutputFile>
@@ -188,7 +188,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\..\include;..\..\srclib;..\..\lib;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)no-i18n;$(SolutionDir);..\..\include;..\..\srclib;..\..\lib;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>ICONV_CONST=const;HAVE_CONFIG_H;_WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <PrecompiledHeaderOutputFile>.\output\vc10\x64\$(Configuration)\uniq-u.pch</PrecompiledHeaderOutputFile>

@@ -97,31 +97,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ItemDefinitionGroup>
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\..\include;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>ICONV_CONST=const;LIBDIR;BUILDING_LIBICONV;BUILDING_LIBCHARSET;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-    </Link>
-    <ResourceCompile>
-      <PreprocessorDefinitions>PACKAGE_VERSION_MAJOR=1;PACKAGE_VERSION_MINOR=13;PACKAGE_VERSION_SUBMINOR=1;PACKAGE_VERSION_STRING="1.13";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\..\include;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)no-i18n;$(SolutionDir);..\..\include;..\..\;..\..\libcharset\include;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>ICONV_CONST=const;LIBDIR;BUILDING_LIBICONV;BUILDING_LIBCHARSET;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>

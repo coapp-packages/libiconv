@@ -23,7 +23,7 @@ metadata {
 }
 
 files[headers] {
-    root: "..\\include\\";
+    root: "libiconv";
     include: {
         "iconv.h"
     };
