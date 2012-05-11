@@ -89,11 +89,13 @@ mingw {
             // that are of significance
  
     build-command: @"
+	if ""${BUILT}"" equ ""true"" goto end
 	mkdir mingw-build
 	cd mingw-build
 	sh '../configure'
     make
 	copy lib\.libs\libiconv.dll.a lib\.libs\iconv.lib
+:end
     ";
             // either a single command line, or a batch script 
             // that has the commands to build the targets listed above.
@@ -119,8 +121,10 @@ x86 {
 
 
     build-command: @"
+		if ""${BUILT}"" equ ""true"" goto end
         msbuild /p:Platform=win32 /p:Configuration=Release COPKG\libiconv\libiconv.sln
         copy output\vc10\x86\Release\libiconv.lib output\vc10\x86\Release\libiconv.dll.a 
+:end
     ";
  
     clean-command: @"
@@ -149,8 +153,10 @@ x64 {
 
 
     build-command: @"
+		if ""${BUILT}"" equ ""true"" goto end
         msbuild /p:Platform=x64 /p:Configuration=Release COPKG\libiconv\libiconv.sln
         copy output\vc10\x64\Release\libiconv.lib output\vc10\x64\Release\\libiconv.dll.a
+:end
     ";
  
     clean-command: @"
