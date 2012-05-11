@@ -40,6 +40,7 @@ package {
         autopackage libiconv-dev-common.autopkg || goto failed
         autopackage libiconv[vc10]-x86.autopkg libiconv-dev[vc10]-x86.autopkg || goto failed
         autopackage libiconv[vc10]-x64.autopkg libiconv-dev[vc10]-x64.autopkg || goto failed
+		autopackage libiconv[vc6]-x86.autopkg || goto failed
         ptk update-version
     ";
 
@@ -68,6 +69,7 @@ release {
     set: BuildCfg="Release";
     uses: x86;
     uses: x64;
+	uses: mingw;
 };
 
 sign {
@@ -82,11 +84,11 @@ mingw {
 
 	default: false;
  
-    targets: { @"mingw-build\bin\libcharset-1.dll",
-			   @"mingw-build\lib\.libs\libiconv-2.dll"};
-		//	   @"mingw-build\src\iconv_no_i18n.exe"} ;
-            // a comma seperated list of the binary files that are output 
-            // that are of significance
+    targets: {
+		@"mingw-build\lib\.libs\libiconv-2.dll",
+		@"mingw-build\lib\.libs\libiconv.dll.a",
+		@"mingw-build\lib\.libs\libiconv.lib",
+	};
  
     build-command: @"
 	if ""${BUILT}"" equ ""true"" goto end
@@ -94,7 +96,7 @@ mingw {
 	cd mingw-build
 	sh '../configure'
     make
-	copy lib\.libs\libiconv.dll.a lib\.libs\iconv.lib
+	copy lib\.libs\libiconv.dll.a lib\.libs\libiconv.lib
 :end
     ";
             // either a single command line, or a batch script 
