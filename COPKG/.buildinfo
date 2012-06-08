@@ -32,6 +32,7 @@ package {
     uses : sign;
     
     targets: { 
+        @"copkg\libiconv[vc6]-${NewVersion}-x86.msi",
         @"copkg\libiconv[vc10]-${NewVersion}-x86.msi",
         @"copkg\libiconv-dev[vc10]-${NewVersion}-x86.msi",
         @"copkg\libiconv-dev-common-${NewVersion}-any.msi",
