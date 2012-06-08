@@ -1,5 +1,9 @@
 @import "version.inc";
 
+#define {
+    NewVersion : "${package-version++}";
+}
+
 #product-info  {
     product-name: "libiconv";
     version: "1.14";
@@ -28,20 +32,20 @@ package {
     uses : sign;
     
     targets: { 
-        @"copkg\libiconv[vc10]-${package-version}-x86.msi",
-        @"copkg\libiconv-dev[vc10]-${package-version}-x86.msi",
-        @"copkg\libiconv-dev-common-${package-version}-any.msi",
-        @"copkg\libiconv[vc10]-${package-version}-x64.msi",
-        @"copkg\libiconv-dev[vc10]-${package-version}-x64.msi"
+        @"copkg\libiconv[vc10]-${NewVersion}-x86.msi",
+        @"copkg\libiconv-dev[vc10]-${NewVersion}-x86.msi",
+        @"copkg\libiconv-dev-common-${NewVersion}-any.msi",
+        @"copkg\libiconv[vc10]-${NewVersion}-x64.msi",
+        @"copkg\libiconv-dev[vc10]-${NewVersion}-x64.msi"
     };
     
     build-command : @"
+        if ""${noversion}"" neq ""true"" ptk update-version
         cd COPKG
         autopackage libiconv-dev-common.autopkg || goto failed
         autopackage libiconv[vc10]-x86.autopkg libiconv-dev[vc10]-x86.autopkg || goto failed
         autopackage libiconv[vc10]-x64.autopkg libiconv-dev[vc10]-x64.autopkg || goto failed
 		autopackage libiconv[vc6]-x86.autopkg || goto failed
-        ptk update-version
     ";
 
 	clean-command: @"del COPKG\*.msi COPKG\*.wixpdb";
@@ -57,10 +61,7 @@ update-version {
         
         cd COPKG
         setlocal EnableDelayedExpansion
-        for /F ""tokens=4,5,6,7  delims=.; "" %%v in (version.inc) do (
-            set /a build=%%y + 1
-            set VERSTRING=#define { package-version: %%v.%%w.%%x.!build!; }
-        )
+        set VERSTRING=#define { package-version: ${NewVersion}; }
         echo !VERSTRING! > version.inc
     ";
 }
