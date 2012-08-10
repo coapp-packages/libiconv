@@ -127,7 +127,7 @@ x86 {
     build-command: @"
 		if ""${BUILT}"" equ ""true"" goto end
         REM this makes it so that DLLs can have their own SxS Activation Context in an embedded resource.
-		echo %_CL% | findstr ISOLATION_AWARE || set _CL=%CL% /D ISOLATION_AWARE_ENABLED /U NOUSER
+		echo %CL% | findstr ISOLATION_AWARE || set CL=%CL% /D ISOLATION_AWARE_ENABLED /U NOUSER
 
         msbuild /p:Platform=win32 /p:Configuration=Release COPKG\libiconv\libiconv.sln
         copy output\vc10\x86\Release\libiconv.lib output\vc10\x86\Release\libiconv.dll.a 
