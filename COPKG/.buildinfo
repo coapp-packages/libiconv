@@ -32,7 +32,7 @@ package {
     uses : sign;
     
     targets: { 
-        @"copkg\libiconv[vc6]-${NewVersion}-x86.msi",
+//        @"copkg\libiconv[vc6]-${NewVersion}-x86.msi",
         @"copkg\libiconv[vc10]-${NewVersion}-x86.msi",
         @"copkg\libiconv-dev[vc10]-${NewVersion}-x86.msi",
         @"copkg\libiconv-dev-common-${NewVersion}-any.msi",
@@ -46,7 +46,7 @@ package {
         autopackage libiconv-dev-common.autopkg || goto failed
         autopackage libiconv[vc10]-x86.autopkg libiconv-dev[vc10]-x86.autopkg || goto failed
         autopackage libiconv[vc10]-x64.autopkg libiconv-dev[vc10]-x64.autopkg || goto failed
-		autopackage libiconv[vc6]-x86.autopkg || goto failed
+REM		autopackage libiconv[vc6]-x86.autopkg || goto failed
     ";
 
 	clean-command: @"del COPKG\*.msi COPKG\*.wixpdb";
@@ -71,7 +71,7 @@ release {
     set: BuildCfg="Release";
     uses: x86;
     uses: x64;
-	uses: mingw;
+//	uses: mingw;
 };
 
 sign {
@@ -126,6 +126,9 @@ x86 {
 
     build-command: @"
 		if ""${BUILT}"" equ ""true"" goto end
+        REM this makes it so that DLLs can have their own SxS Activation Context in an embedded resource.
+		echo %CL% | findstr ISOLATION_AWARE || set CL=%CL% /D ISOLATION_AWARE_ENABLED /U NOUSER
+
         msbuild /p:Platform=win32 /p:Configuration=Release COPKG\libiconv\libiconv.sln
         copy output\vc10\x86\Release\libiconv.lib output\vc10\x86\Release\libiconv.dll.a 
 :end
@@ -158,6 +161,9 @@ x64 {
 
     build-command: @"
 		if ""${BUILT}"" equ ""true"" goto end
+        REM this makes it so that DLLs can have their own SxS Activation Context in an embedded resource.
+		echo %_CL% | findstr ISOLATION_AWARE || set _CL=%CL% /D ISOLATION_AWARE_ENABLED /U NOUSER
+
         msbuild /p:Platform=x64 /p:Configuration=Release COPKG\libiconv\libiconv.sln
         copy output\vc10\x64\Release\libiconv.lib output\vc10\x64\Release\\libiconv.dll.a
 :end
