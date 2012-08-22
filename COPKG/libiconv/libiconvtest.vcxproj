@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\srclib\safe-read.c" />
     <ClCompile Include="..\..\srclib\progname.c" />
     <ClCompile Include="..\..\srclib\uniwidth\width.c" />
     <ClCompile Include="..\..\src\iconv_no_i18n.c" />
