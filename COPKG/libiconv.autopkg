@@ -1,0 +1,202 @@
+@import @"version.inc";
+
+
+
+configurations {
+};
+
+nuget {
+	// the nuspec file metadata. Gets created/updated on build
+	nuspec {
+		id = libiconv;
+		version : ${package-version};
+		title: libiconv;
+		authors: {Bruno Haible};
+		owners: {CoApp Project, Garrett Serack};
+		licenseUrl: "http://www.gnu.org/licenses/gpl-3.0.html";
+		projectUrl: "http://github.com/coapp-packages/libiconv";
+		iconUrl: "http://www.gnu.org/graphics/gnu-head-sm.png";
+		requireLicenseAcceptance:false;
+		summary:libiconv;
+		description: @"libiconv homepage:  http://www.gnu.org/software/libiconv/";
+		releaseNotes: "Release of libiconv 1.14 libraries.";
+		copyright: Copyright 2013;
+		tags: { libiconv, iconv, native, CoApp };
+	};
+
+	// the files that go into the content folders
+	// (inserted into the nuspec file)
+	files {
+		include: {
+			.\libiconv\iconv.h
+        };
+        
+        source += {
+            ..\**\*.c,
+            // ..\**\*.cpp,
+            ..\**\*.h,
+            // ..\**\*.hpp,
+        };
+        
+		docs: {  ..\doc\**\* };
+        
+		[Win32,v110,dynamic,debug] { 
+			lib: { 
+				..\output\v110\Win32\debug\libiconv.lib,
+			};
+			bin += { 
+				..\output\v110\Win32\debug\libiconv.dll, 
+			};
+            symbols : {
+                ..\output\v110\Win32\debug\libiconv.pdb,
+            };
+		}
+
+		[x64,v110,dynamic,debug] {
+			lib: { 
+				..\output\v110\x64\debug\libiconv.lib,
+			};
+			bin += { 
+				..\output\v110\x64\debug\libiconv.dll, 
+			};
+            symbols : {
+                ..\output\v110\x64\debug\libiconv.pdb,
+            };
+		}
+		
+		[Win32,v100,dynamic,debug] { 
+			lib: { 
+				..\output\v100\Win32\debug\libiconv.lib,
+			};
+			bin += { 
+				..\output\v100\Win32\debug\libiconv.dll, 
+			};
+            symbols : {
+                ..\output\v100\Win32\debug\libiconv.pdb,
+            };
+		}
+
+		[x64,v100,dynamic,debug] {
+			lib: { 
+				..\output\v100\x64\debug\libiconv.lib,
+			};
+			bin += { 
+				..\output\v100\x64\debug\libiconv.dll, 
+			};
+            symbols : {
+                ..\output\v100\x64\debug\libiconv.pdb,
+            };
+		}
+		
+		[Win32,v110,static,debug] { 
+			lib: { 
+				..\output\v110\Win32\debug\libiconv-static.lib,
+			};
+		}
+
+		[x64,v110,static,debug] {
+			lib: { 
+				..\output\v110\x64\debug\libiconv-static.lib,
+			};
+		}
+		
+		[Win32,v100,static,debug] { 
+			lib: { 
+				..\output\v100\Win32\debug\libiconv-static.lib,
+			};
+		}
+
+		[x64,v100,static,debug] {
+			lib: { 
+				..\output\v100\x64\debug\libiconv-static.lib,
+			};
+		}
+		
+		[Win32,v110,dynamic,release] { 
+			lib: { 
+				..\output\v110\Win32\release\libiconv.lib,
+			};
+			bin += { 
+				..\output\v110\Win32\release\libiconv.dll, 
+			};
+            symbols : {
+                ..\output\v110\Win32\release\libiconv.pdb,
+            };
+		}
+
+		[x64,v110,dynamic,release] {
+			lib: { 
+				..\output\v110\x64\release\libiconv.lib,
+			};
+			bin += { 
+				..\output\v110\x64\release\libiconv.dll, 
+			};
+            symbols : {
+                ..\output\v110\x64\release\libiconv.pdb,
+            };
+		}
+		
+		[Win32,v100,dynamic,release] { 
+			lib: { 
+				..\output\v100\Win32\release\libiconv.lib,
+			};
+			bin += { 
+				..\output\v100\Win32\release\libiconv.dll, 
+			};
+            symbols : {
+                ..\output\v100\Win32\release\libiconv.pdb,
+            };
+		}
+
+		[x64,v100,dynamic,release] {
+			lib: { 
+				..\output\v100\x64\release\libiconv.lib,
+			};
+			bin += { 
+				..\output\v100\x64\release\libiconv.dll, 
+			};
+            symbols : {
+                ..\output\v100\x64\release\libiconv.pdb,
+            };
+		}
+		
+		[Win32,v110,static,release] { 
+			lib: { 
+				..\output\v110\Win32\release\libiconv-static.lib,
+			};
+		}
+
+		[x64,v110,static,release] {
+			lib: { 
+				..\output\v110\x64\release\libiconv-static.lib,
+			};
+		}
+		
+		[Win32,v100,static,release] { 
+			lib: { 
+				..\output\v100\Win32\release\libiconv-static.lib,
+			};
+		}
+
+		[x64,v100,static,release] {
+			lib: { 
+				..\output\v100\x64\release\libiconv-static.lib,
+			};
+		}
+		
+	};
+	
+	// the VC++ .props file that gets generated and inserted into the ${d_content} folder
+	props { 
+	};
+
+	// the VC++ .targets file that gets generated and inserted into the ${d_content} folder
+	targets {
+		// every configuration needs to reference the include directories.
+		// Defines += HAS_ICONV;
+        [static]
+            Defines += USING_STATIC_LIBICONV=true;
+		
+	};
+}
+
