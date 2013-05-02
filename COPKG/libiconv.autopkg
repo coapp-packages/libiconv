@@ -42,145 +42,145 @@ nuget {
         
 		[Win32,v110,dynamic,debug] { 
 			lib: { 
-				..\output\v110\Win32\debug\libiconv.lib,
+				.\libiconv\output\v110\Win32\debug\DynamicLibrary\cdecl\libiconv.lib,
 			};
 			bin += { 
-				..\output\v110\Win32\debug\libiconv.dll, 
+				.\libiconv\output\v110\Win32\debug\DynamicLibrary\cdecl\libiconv.dll, 
 			};
             symbols : {
-                ..\output\v110\Win32\debug\libiconv.pdb,
+                .\libiconv\output\v110\Win32\debug\DynamicLibrary\cdecl\libiconv.pdb,
             };
 		}
 
 		[x64,v110,dynamic,debug] {
 			lib: { 
-				..\output\v110\x64\debug\libiconv.lib,
+				.\libiconv\output\v110\x64\debug\DynamicLibrary\cdecl\libiconv.lib,
 			};
 			bin += { 
-				..\output\v110\x64\debug\libiconv.dll, 
+				.\libiconv\output\v110\x64\debug\DynamicLibrary\cdecl\libiconv.dll, 
 			};
             symbols : {
-                ..\output\v110\x64\debug\libiconv.pdb,
+                .\libiconv\output\v110\x64\debug\DynamicLibrary\cdecl\libiconv.pdb,
             };
 		}
 		
 		[Win32,v100,dynamic,debug] { 
 			lib: { 
-				..\output\v100\Win32\debug\libiconv.lib,
+				.\libiconv\output\v100\Win32\debug\DynamicLibrary\cdecl\libiconv.lib,
 			};
 			bin += { 
-				..\output\v100\Win32\debug\libiconv.dll, 
+				.\libiconv\output\v100\Win32\debug\DynamicLibrary\cdecl\libiconv.dll, 
 			};
             symbols : {
-                ..\output\v100\Win32\debug\libiconv.pdb,
+                .\libiconv\output\v100\Win32\debug\DynamicLibrary\cdecl\libiconv.pdb,
             };
 		}
 
 		[x64,v100,dynamic,debug] {
 			lib: { 
-				..\output\v100\x64\debug\libiconv.lib,
+				.\libiconv\output\v100\x64\debug\DynamicLibrary\cdecl\libiconv.lib,
 			};
 			bin += { 
-				..\output\v100\x64\debug\libiconv.dll, 
+				.\libiconv\output\v100\x64\debug\DynamicLibrary\cdecl\libiconv.dll, 
 			};
             symbols : {
-                ..\output\v100\x64\debug\libiconv.pdb,
+                .\libiconv\output\v100\x64\debug\DynamicLibrary\cdecl\libiconv.pdb,
             };
 		}
 		
 		[Win32,v110,static,debug] { 
 			lib: { 
-				..\output\v110\Win32\debug\libiconv-static.lib,
+				.\libiconv\output\v110\Win32\debug\StaticLibrary\cdecl\libiconv-static.lib,
 			};
 		}
 
 		[x64,v110,static,debug] {
 			lib: { 
-				..\output\v110\x64\debug\libiconv-static.lib,
+				.\libiconv\output\v110\x64\debug\StaticLibrary\cdecl\libiconv-static.lib,
 			};
 		}
 		
 		[Win32,v100,static,debug] { 
 			lib: { 
-				..\output\v100\Win32\debug\libiconv-static.lib,
+				.\libiconv\output\v100\Win32\debug\StaticLibrary\cdecl\libiconv-static.lib,
 			};
 		}
 
 		[x64,v100,static,debug] {
 			lib: { 
-				..\output\v100\x64\debug\libiconv-static.lib,
+				.\libiconv\output\v100\x64\debug\StaticLibrary\cdecl\libiconv-static.lib,
 			};
 		}
 		
 		[Win32,v110,dynamic,release] { 
 			lib: { 
-				..\output\v110\Win32\release\libiconv.lib,
+				.\libiconv\output\v110\Win32\release\DynamicLibrary\cdecl\libiconv.lib,
 			};
 			bin += { 
-				..\output\v110\Win32\release\libiconv.dll, 
+				.\libiconv\output\v110\Win32\release\DynamicLibrary\cdecl\libiconv.dll, 
 			};
             symbols : {
-                ..\output\v110\Win32\release\libiconv.pdb,
+                .\libiconv\output\v110\Win32\release\DynamicLibrary\cdecl\libiconv.pdb,
             };
 		}
 
 		[x64,v110,dynamic,release] {
 			lib: { 
-				..\output\v110\x64\release\libiconv.lib,
+				.\libiconv\output\v110\x64\release\DynamicLibrary\cdecl\libiconv.lib,
 			};
 			bin += { 
-				..\output\v110\x64\release\libiconv.dll, 
+				.\libiconv\output\v110\x64\release\DynamicLibrary\cdecl\libiconv.dll, 
 			};
             symbols : {
-                ..\output\v110\x64\release\libiconv.pdb,
+                .\libiconv\output\v110\x64\release\DynamicLibrary\cdecl\libiconv.pdb,
             };
 		}
 		
 		[Win32,v100,dynamic,release] { 
 			lib: { 
-				..\output\v100\Win32\release\libiconv.lib,
+				.\libiconv\output\v100\Win32\release\DynamicLibrary\cdecl\libiconv.lib,
 			};
 			bin += { 
-				..\output\v100\Win32\release\libiconv.dll, 
+				.\libiconv\output\v100\Win32\release\DynamicLibrary\cdecl\libiconv.dll, 
 			};
             symbols : {
-                ..\output\v100\Win32\release\libiconv.pdb,
+                .\libiconv\output\v100\Win32\release\DynamicLibrary\cdecl\libiconv.pdb,
             };
 		}
 
 		[x64,v100,dynamic,release] {
 			lib: { 
-				..\output\v100\x64\release\libiconv.lib,
+				.\libiconv\output\v100\x64\release\DynamicLibrary\cdecl\libiconv.lib,
 			};
 			bin += { 
-				..\output\v100\x64\release\libiconv.dll, 
+				.\libiconv\output\v100\x64\release\DynamicLibrary\cdecl\libiconv.dll, 
 			};
             symbols : {
-                ..\output\v100\x64\release\libiconv.pdb,
+                .\libiconv\output\v100\x64\release\DynamicLibrary\cdecl\libiconv.pdb,
             };
 		}
 		
 		[Win32,v110,static,release] { 
 			lib: { 
-				..\output\v110\Win32\release\libiconv-static.lib,
+				.\libiconv\output\v110\Win32\release\StaticLibrary\cdecl\libiconv-static.lib,
 			};
 		}
 
 		[x64,v110,static,release] {
 			lib: { 
-				..\output\v110\x64\release\libiconv-static.lib,
+				.\libiconv\output\v110\x64\release\StaticLibrary\cdecl\libiconv-static.lib,
 			};
 		}
 		
 		[Win32,v100,static,release] { 
 			lib: { 
-				..\output\v100\Win32\release\libiconv-static.lib,
+				.\libiconv\output\v100\Win32\release\StaticLibrary\cdecl\libiconv-static.lib,
 			};
 		}
 
 		[x64,v100,static,release] {
 			lib: { 
-				..\output\v100\x64\release\libiconv-static.lib,
+				.\libiconv\output\v100\x64\release\StaticLibrary\cdecl\libiconv-static.lib,
 			};
 		}
 		
